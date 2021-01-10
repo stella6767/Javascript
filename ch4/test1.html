@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>테스트</h1>
+
+
+    //button onclick은 window.onclick 생략 onclick="a()"
+    <button id="btn">버튼</button>
+    <script src="script3.js"> </script>
+    <script>
+        //이벤트 리스너 
+        document.querySelector("#btn")
+            .addEventListener("click", () => {  //화살표 함수를 쓰면, 내가 생각한(자바) this(자기를 포함한 부모)가 된다.
+                console.log(this); //화살표 안 쓰고 function () 쓰면 내가 생각한 this가 아니라, window
+                this.hello(); //화살표 말고, 바인딩 해도 된다. var _this = this; _this.hello(); 호출됨
+            });
+
+        function hello() {
+            console.log("hello");
+        }
+
+
+        var user = {
+
+
+
+        }
+
+
+        function a() {
+            console.log(this); //여기서 this는 윈도우
+        }
+
+        a = () => {
+            console.log(this); //이렇게 해도 function은 객체가 아니라(객체.a가 안됨), this가 window 객체가 된다.
+        }
+        a();
+    </script>
+</body>
+
+</html>
